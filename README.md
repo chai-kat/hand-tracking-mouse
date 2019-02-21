@@ -1,4 +1,14 @@
 # Usage
+Once you've got everything installed, the simplest way to run the software is to double click on the *ht_mouse.py* file that should appear in the downloaded folder. 
+
+You should not need to set anything up and you should see the mouse moving as soon as the program starts running (usually within 5-10 seconds). In its current iteration, if you hover over a position for around 1 second then you will get a click.
+
+In short:
+* Run the program
+* Wait 5 seconds
+* Move your hand around (and make sure the camera can see it)
+* Enjoy 
+
 Currently, this software is only tested on MacOS. That said, it should run well without configuration on both Windows and Linux devices with at least one working camera.
 
 If you have more than one camera attached, you may need to change the camera device index to the one you want to use. This can be done by passing the -c flag
@@ -53,7 +63,7 @@ $ pip install -y opencv-python==3.4.2.17
 ```
 There are a few different options for installing Tensorflow on your system, which vary depending on the hardware you have, and the speedups that you want to include. You can install either the tensorflow or tensorflow-gpu packages from pip, or you can build them from source by [following the directions here](https://www.tensorflow.org/install/source).
 
-N.B. Building and installing tensorflow from source takes a _long time_. However, it does offer a considerable speed boost (for me, it sped up by about 3x). If you can't find a pre-built wheel, like [the ones in this wonderful repository](https://github.com/lakshayg/tensorflow-build), then my recommendation is not to take this route. 
+N.B. Building and installing tensorflow from source takes a _long time_. However, it does offer a considerable speed boost (for me, it sped up by about 3x). If you can't find a pre-built wheel, like the ones in the notes section below, then my recommendation is not to take this route. Also, if you are using this, make sure to choose a wheel that was built for Python 2.7.15 and is built for TF Version 1.1.2. **The software may not work otherwise.** 
 
 To install tensorflow with pip:
 ``` bash
