@@ -13,6 +13,11 @@ If you are running on MacOS Mojave (Version 10.14 or later) then you will be pro
 # Installation
 ## Prerequisites
 
+First download this repo to your local machine.
+``` bash
+git clone https://github.com/chai-kat/hand-tracking-mouse.git
+```
+
 This installation requires you to have Python 2.7, OpenCV 3, Numpy, TensorFlow and Pyautogui installed on your device. Installation of these is detailed below. 
 
 If you do not have conda installed, then you will find it easiest to just use the install script provided. This downloads conda, and after giving you the option to accept the T&Cs, installs conda, and creates the "ht_mouse" environment with the necessary packages for running the program. This can be done by:
@@ -28,9 +33,8 @@ $ installWindows.bat
 ```
 If you have conda installed to a directory that's not the default, don't want to use conda, or want to use a GPU-compatible/specially built TensorFlow package, read on.
 
-## Installing on MacOS and Linux
 
-### With Conda
+### With Conda (Any OS)
 
 Create a conda environment with the required packages:
 ``` bash
@@ -38,7 +42,7 @@ $ conda env create -f environment.yml
 ```
 Done. Easy as pie.
 
-### With Pip
+### With Pip (Also Any OS)
 Install pyautogui and its dependencies:
 ``` bash
 $ pip install -y pyautogui==0.9.38 
@@ -60,7 +64,7 @@ Or if you want to use the GPU to speed up processing:
 $ pip install tensorflow-gpu==1.12
 ```
 
-You can follow the same steps on MacOS, Linux and Windows, and you will get the same results.
+As in the headings, you can follow the same steps on MacOS, Linux and Windows, and you will get the same results.
 
 # Notes
 If you are on Windows - especially versions before Windows 10, installation from the pip wheel may not work for you. Instead, try the instructions [here](_).
