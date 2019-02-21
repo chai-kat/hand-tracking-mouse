@@ -5,7 +5,7 @@ If you have more than one camera attached, you may need to change the camera dev
 
 ```bash
 $ conda activate ht_mouse 
-$ python ht_mouse.py [-c=0] [-]
+$ python ht_mouse.py # OPTIONAL: -c={Camera Device Index}
 ```
 
 If you are running on MacOS Mojave (Version 10.14 or later) then you will be prompted to allow access to Accessibility Settings. This is to allow python the access to move the mouse around, so denying this will break the program.
