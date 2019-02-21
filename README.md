@@ -1,7 +1,7 @@
-# Running 
+# Usage
 Currently, this software is only tested on MacOS. That said, it should run well without configuration on both Windows and Linux devices with at least one working camera.
 
-If you have more than one camera attached, you may need to change the camera device index. This can be done by passing the -c flag
+If you have more than one camera attached, you may need to change the camera device index to the one you want to use. This can be done by passing the -c flag
 
 ```bash
 $ conda activate ht_mouse 
