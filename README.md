@@ -81,3 +81,10 @@ If you are on Windows - especially versions before Windows 10, installation from
 
 There are a number of prebuilt tensorflow wheels that are posted publicly - you may be able to find these for your specific platform. I've included some links to such repos below:
 * [For MacOS, Windows and Linux](https://github.com/lakshayg/tensorflow-build) (This is the same link as above)
+
+For this project, you **must** use *Tensorflow 1.12* and *Python 2.7.15*
+
+If you use this I would much appreciate if you could fill out the following surveys:
+* [Installation Experience Survey](https://docs.google.com/forms/d/1kLv4SNQ-jc7B72dzxahmLuUo6W9kVNQT3_dNKCX1CxA/edit)
+* [Usage Experience Survey](https://docs.google.com/forms/d/1v_pfLsXHCjcyn0H4W6U2zS_usfi7vh-ugRUPmMv68JY/edit)
+* Any other feedback is appreciated in the Issues page
