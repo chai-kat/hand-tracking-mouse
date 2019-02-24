@@ -198,12 +198,6 @@ def write_time(tstart):
     msg = "Frame time: " + str(tdiff) + " seconds"
     output(msg)
 
-
-# open VideoCapture and let the camera warm up
-cap = cv2.VideoCapture(CAMERA_INDEX)
-time.sleep(0.3)
-
-
 def get_mouse_box(mx, my, box_side=400):
     xmin = mx - box_side
     ymin = my - box_side
@@ -235,6 +229,9 @@ thresh_val = 127
 #  but it varies based on lighting, etc.
 #  Change on the day of showcase
 SCORE_THRESH = 0.6
+# open VideoCapture and let the camera warm up
+cap = cv2.VideoCapture(CAMERA_INDEX)
+time.sleep(0.005)
 
 while True:
     img, thresh, thresh_inv = get_img(cap, flip=True)
