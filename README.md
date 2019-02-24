@@ -32,16 +32,13 @@ This installation requires you to have Python 2.7, OpenCV 3, Numpy, TensorFlow a
 
 If you do not have conda installed, then you will find it easiest to just use the install script provided. This downloads conda, and after giving you the option to accept the T&Cs, installs conda, and creates the "ht_mouse" environment with the necessary packages for running the program. This can be done by:
 
-### On MacOS and Linux
+On MacOS and Linux you can use the provided installation script:
 ```bash
 $ ./installLinux.sh
 ```
+If you are on Windows, then skip to the directions for installing with pip.
 
-### On Windows
-``` cmd
-$ installWindows.bat
-```
-If you have conda installed to a directory that's not the default, don't want to use conda, or want to use a GPU-compatible/specially built TensorFlow package, read on.
+Also, If you have conda installed to a directory that's not the default, don't want to use conda, or want to use a GPU-compatible/specially built TensorFlow package, read on.
 
 
 ### With Conda (Any OS)
