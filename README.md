@@ -1,13 +1,14 @@
 # Usage
 Once you've got everything installed, the simplest way to run the software is to double click on the *ht_mouse.py* file that should appear in the downloaded folder. 
 
-You should not need to set anything up and you should see the mouse moving as soon as the program starts running (usually within 5-10 seconds). In its current iteration, if you hover over a position for around 1 second then you will get a click.
+You should not need to set anything up and you should see the mouse moving as soon as the program starts running (usually within 1-2 seconds). In its current iteration, if you hover over a position for around 1 second then you will get a click.
 
 In short:
-* Run the program
-* Wait 5 seconds
-* Move your hand around (and make sure the camera can see it)
-* Enjoy 
+* Run the program, when you see the camera turn on (most computers have a light beside the camera which turns on when the camera is running)
+* Move your hand in front of the camera (and make sure the camera can see most of it)
+* Hover over a point for about a second to click on it
+
+There are some issues with using this software at the edges of the screen or very far away. Future fixes will take care of the second by updating the dataset used for hand recognition. If you want to use the edges of the screen better, you can use a wide-angle lens on your camera (think: [this](https://www.thingiverse.com/thing:478671)), or, even better, a native wide-angle camera. In case you're feeling a little less motivated, moving your a little further away does the trick pretty well. 
 
 Currently, this software is only tested on MacOS. That said, it should run well without configuration on both Windows and Linux devices with at least one working camera.
 
