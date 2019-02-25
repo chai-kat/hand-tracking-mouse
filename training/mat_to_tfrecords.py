@@ -12,9 +12,11 @@ import io
 from object_detection.utils import dataset_util
 from scipy.io import loadmat
 
-SAMPLES_DIR = "/Users/chaitanyakatpatal/Desktop/HandTrackingResearch/egohands_data/_LABELLED_SAMPLES"
-cwd = os.getcwd()
 
+WHERE_IS_SAMPLES_DIR = ""
+SAMPLES_DIR = "{}/egohands_data/_LABELLED_SAMPLES".format(WHERE_IS_SAMPLES_DIR)
+cwd = os.getcwd()
+os.mkdir(os.join(cwd, "DatasetTFRecords"))
 #organize the sub-directories and their paths into a list
 SUB_DIRECTORIES = ['CARDS_COURTYARD_B_T', 'CARDS_COURTYARD_H_S', 'CARDS_COURTYARD_S_H', 'CARDS_COURTYARD_T_B', 'CARDS_LIVINGROOM_B_T', 'CARDS_LIVINGROOM_H_S', 'CARDS_LIVINGROOM_S_H', 'CARDS_LIVINGROOM_T_B', 'CARDS_OFFICE_B_S', 'CARDS_OFFICE_H_T', 'CARDS_OFFICE_S_B', 'CARDS_OFFICE_T_H', 'CHESS_COURTYARD_B_T', 'CHESS_COURTYARD_H_S', 'CHESS_COURTYARD_S_H', 'CHESS_COURTYARD_T_B', 'CHESS_LIVINGROOM_B_S', 'CHESS_LIVINGROOM_H_T', 'CHESS_LIVINGROOM_S_B', 'CHESS_LIVINGROOM_T_H', 'CHESS_OFFICE_B_S', 'CHESS_OFFICE_H_T', 'CHESS_OFFICE_S_B', 'CHESS_OFFICE_T_H', 'JENGA_COURTYARD_B_H', 'JENGA_COURTYARD_H_B', 'JENGA_COURTYARD_S_T', 'JENGA_COURTYARD_T_S', 'JENGA_LIVINGROOM_B_H', 'JENGA_LIVINGROOM_H_B', 'JENGA_LIVINGROOM_S_T', 'JENGA_LIVINGROOM_T_S', 'JENGA_OFFICE_B_S', 'JENGA_OFFICE_H_T', 'JENGA_OFFICE_S_B', 'JENGA_OFFICE_T_H', 'PUZZLE_COURTYARD_B_S', 'PUZZLE_COURTYARD_H_T', 'PUZZLE_COURTYARD_S_B', 'PUZZLE_COURTYARD_T_H', 'PUZZLE_LIVINGROOM_B_T', 'PUZZLE_LIVINGROOM_H_S', 'PUZZLE_LIVINGROOM_S_H', 'PUZZLE_LIVINGROOM_T_B', 'PUZZLE_OFFICE_B_H', 'PUZZLE_OFFICE_H_B', 'PUZZLE_OFFICE_S_T', 'PUZZLE_OFFICE_T_S']
 for index, folder_name in enumerate(SUB_DIRECTORIES):
@@ -137,7 +139,7 @@ def main(_):
   #for train
   print "working on the train split"
   last_folder = 0
-  write_path = cwd + "/DatasetTFRecords/train.record"
+  write_path = cwd + "DatasetTFRecords/train.record"
   writer = tf.python_io.TFRecordWriter(write_path)
   for folder_index, folder in enumerate(train_sample_files):
     print "Working on " + SUB_DIRECTORIES[folder_index]
