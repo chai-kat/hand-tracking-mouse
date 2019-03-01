@@ -1,5 +1,3 @@
 # Don't track the content of these folders
 .vscode/
-
-# These files
-playground.py
+playground/
