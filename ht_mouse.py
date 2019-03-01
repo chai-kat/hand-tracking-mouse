@@ -198,6 +198,7 @@ def write_time(tstart):
     msg = "Frame time: " + str(tdiff) + " seconds"
     output(msg)
 
+
 def get_mouse_box(mx, my, box_side=400):
     xmin = mx - box_side
     ymin = my - box_side
@@ -218,6 +219,7 @@ def is_in_mousebox(mx, my, mouse_box):
                 if (my <= ymax):
                     return True
     return False
+
 
 screen_width, screen_height = pyautogui.size()
 dark_frames = 0
