@@ -235,54 +235,63 @@ SCORE_THRESH = 0.6
 cap = cv2.VideoCapture(CAMERA_INDEX)
 time.sleep(0.005)
 
+paused = False
+
 while True:
     img, thresh, thresh_inv = get_img(cap, flip=True)
-    boxes, scores = get_detections(img, sess, detection_graph)
 
-    # failsafe, just cover the camera if the mouse goes out of control.
-    if dark_frames == 10:
-        break
+    # ! Only get detections and move the mouse when unpaused, we can still show the camera feed
+    if not paused:
+        boxes, scores = get_detections(img, sess, detection_graph)
 
-    dpercentage = get_dark_percentage(thresh_inv)
-    if (dpercentage > 95):
-        dark_frames += 1
-        continue
-    else:
-        if not dark_frames == 0:
-            dark_frames -= 1
+        # failsafe, just cover the camera if the mouse goes out of control.
+        if dark_frames == 10:
+            break
 
-    # get only first box&score (highest probability):
-    det_num = 0
-    bb = boxes[0][det_num]
-    score = scores[0][det_num]
-
-    left, top, right, bottom = get_points(bb)
-
-    if score >= SCORE_THRESH:
-        mx, my = get_mouse_points(
-            left, top, right, bottom, screen_height, screen_width)
-        move_mouse(mx, my)
-
-    else:
-        mx, my = pyautogui.position()
-    if mouse_box is None:
-        bxmin, bymin, bxmax, bymax = get_mouse_box(mx, my, box_side=50)
-        mouse_box = [bxmin, bymin, bxmax, bymax]
-    else:
-        if is_in_mousebox(mx, my, mouse_box):
-            mouse_in_box_frames += 1
+        dpercentage = get_dark_percentage(thresh_inv)
+        if (dpercentage > 95):
+            dark_frames += 1
+            continue
         else:
+            if not dark_frames == 0:
+                dark_frames -= 1
+
+        # get only first box&score (highest probability):
+        det_num = 0
+        bb = boxes[0][det_num]
+        score = scores[0][det_num]
+
+        left, top, right, bottom = get_points(bb)
+
+        if score >= SCORE_THRESH:
+            mx, my = get_mouse_points(
+                left, top, right, bottom, screen_height, screen_width)
+            move_mouse(mx, my)
+
+        else:
+            mx, my = pyautogui.position()
+        if mouse_box is None:
             bxmin, bymin, bxmax, bymax = get_mouse_box(mx, my, box_side=50)
             mouse_box = [bxmin, bymin, bxmax, bymax]
+        else:
+            if is_in_mousebox(mx, my, mouse_box):
+                mouse_in_box_frames += 1
+            else:
+                bxmin, bymin, bxmax, bymax = get_mouse_box(mx, my, box_side=50)
+                mouse_box = [bxmin, bymin, bxmax, bymax]
 
-    if mouse_in_box_frames >= 4:
-        pyautogui.click(pyautogui.position())
-        mouse_in_box_frames = 0
+        if mouse_in_box_frames >= 4:
+            pyautogui.click(pyautogui.position())
+            mouse_in_box_frames = 0
 
     cv2.imshow("Captured Image + Detection",
                prep_show_img(img, left, top, right, bottom))
-    if (cv2.waitKey(10) & 0xff) == ord("q"):
+    
+    captured_key = cv2.waitKey(10)
+    if (captured_key & 0xff) == ord("q"):
         cv2.destroyAllWindows()
         break
+    elif (captured_key & 0xff) == ord(" "):
+        paused = not paused
 
 cap.release()
