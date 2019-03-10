@@ -37,6 +37,7 @@ On MacOS and Linux you can use the provided installation script:
 ```bash
 $ ./installLinux.sh
 ```
+You can also double-click the installLinux file and it will handle the rest for you.
 If you are on Windows, then skip to the directions for installing with pip.
 
 Also, If you have conda installed to a directory that's not the default, don't want to use conda, or want to use a GPU-compatible/specially built TensorFlow package, read on.
